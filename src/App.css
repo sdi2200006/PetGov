@@ -1,0 +1,10 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  margin-top: 80px; /* για να μην κρύβεται κάτω από το fixed menu */
+  flex: 1;
+}

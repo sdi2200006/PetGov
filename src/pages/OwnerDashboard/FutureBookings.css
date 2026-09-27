@@ -1,0 +1,150 @@
+.future-bookings {  
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 100px 20px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.future-bookings h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+/* Λίστα bookings */
+.booking-card {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 20px;
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* Header της κάθε booking card */
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #fafafa, #f2f2f2);
+  font-size: 0.95rem;
+}
+
+.booking-header strong {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.booking-header span {
+  font-weight: 500;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* Body της κάθε booking card */
+.booking-body {
+  background: #ffffff;
+  padding: 22px 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px 24px;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.info-grid strong {
+  color: #2c3e50;
+}
+
+/* Κουμπί ακύρωσης */
+  .booking-body .cancel-btn{
+  background: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+
+}
+  .booking-body .cancel-btn:hover{
+  background: #f8d7da;
+  color: #6b1b22;
+  border: 1px solid #f5c2c7;
+
+}
+.booking-body .confirm-btn {
+  background: #2e8b57;
+  color: white;
+  border: none;
+}
+
+.booking-body .confirm-btn:hover {
+  background: #19653a;
+  color: white;
+}
+
+/* Χρώματα κατάστασης (αν θες να τα χρησιμοποιήσεις) */
+.booking-card.confirmed {
+  background: #dff3e7;
+  border: 2px solid #3fa67a;
+}
+
+.booking-card.pending {
+  background: #f8efe5;
+  border: 2px solid #d1a66d;
+}
+
+.booking-card.cancelled {
+  background: #f5c6c5;
+  border: 2px solid #a12b2a;
+}
+
+.booking-header .right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.arrow {
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+  color: #2c3e50;
+}
+
+/* Όταν είναι ανοιχτό */
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .booking-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .booking-header span {
+    font-size: 0.85rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-body button {
+    width: 100%;
+  }
+}

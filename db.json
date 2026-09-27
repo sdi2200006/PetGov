@@ -1,0 +1,1129 @@
+{
+  "owners": [
+    {
+      "id": "631b",
+      "firstname": "ΑΛΤΑΝΗH",
+      "lastname": "ΤΟΝΤΟΥY",
+      "afm": "2325788990",
+      "gender": "Άνδρας",
+      "address": "Αθανασίου Διάκου 71",
+      "birthdate": "2004-06-26",
+      "phone": "69427818521",
+      "email": "sdi2200288@uoa.gr",
+      "password": "Altani1!!!"
+    },
+    {
+      "id": "o101",
+      "firstname": "ΝΙΚΟΣ",
+      "lastname": "ΠΑΠΑΔΟΠΟΥΛΟΣ",
+      "afm": "1234567890",
+      "gender": "Άνδρας",
+      "address": "Ερμού 10",
+      "birthdate": "1992-03-11",
+      "phone": "6900000001",
+      "email": "nikos@example.com",
+      "password": "Nikos1!!"
+    },
+    {
+      "id": "o102",
+      "firstname": "ΜΑΡΙΑ",
+      "lastname": "ΓΕΩΡΓΙΟΥ",
+      "afm": "9876543210",
+      "gender": "Γυναίκα",
+      "address": "Τσιμισκή 22",
+      "birthdate": "1995-09-02",
+      "phone": "6900000002",
+      "email": "maria@example.com",
+      "password": "Maria1!!"
+    },
+    {
+      "id": "8d4e",
+      "firstname": "E",
+      "lastname": "A",
+      "afm": "1111111111",
+      "gender": "Αρσενικό",
+      "address": "Μακρίσια",
+      "birthdate": "2026-01-15",
+      "phone": "6980426710",
+      "email": "e.antoniou209886@gmail.com",
+      "password": "11111111"
+    },
+    {
+      "id": "0405",
+      "firstname": "Ε",
+      "lastname": "Σ",
+      "afm": "1344444444",
+      "gender": "Αρσενικό",
+      "address": "Μακρίσια",
+      "birthdate": "2026-01-23",
+      "phone": "6980426711",
+      "email": "e.antoniou26@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "3870",
+      "firstname": "ΠΑΝΑΓΙΩΤΗΣS",
+      "lastname": "ΤΟΝΤΟΣS",
+      "afm": "5768492020",
+      "gender": "Γυναίκα",
+      "address": "maaaa",
+      "birthdate": "1994-02-14",
+      "phone": "6947070122",
+      "email": "TONTOSPANAGIOTES1@GMAIL.COM",
+      "password": "22222222"
+    },
+    {
+      "id": "9def",
+      "firstname": "Ε",
+      "lastname": "Α",
+      "afm": "1111111114",
+      "gender": "Θηλυκό",
+      "address": "Ούλωφ Πάλμε 2-4 Α ΦΕΠΑ",
+      "birthdate": "2003-01-29",
+      "phone": "000000000000000",
+      "email": "e.antoniou206@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "2707",
+      "firstname": "K",
+      "lastname": "D",
+      "afm": "2325788991",
+      "gender": "Αρσενικό",
+      "address": "DDDD",
+      "birthdate": "2003-06-03",
+      "phone": "6980426710",
+      "email": "e.antoniou2016@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "ad5c",
+      "firstname": "JK",
+      "lastname": "BTS",
+      "afm": "5555555555",
+      "gender": "Αρσενικό",
+      "address": "KOREA",
+      "birthdate": "2004-06-16",
+      "phone": "5612999999",
+      "email": "JK@uoa.gr",
+      "password": "6666666666"
+    }
+  ],
+  "vets": [
+    {
+      "id": "v001",
+      "firstname": "ΓΙΩΡΓΟΣ",
+      "lastname": "ΚΩΝΣΤΑΝΤΙΝΟΥ",
+      "afm": "1112223334",
+      "gender": "Άνδρας",
+      "address": "Πατησίων 100, Αθήνα",
+      "birthdate": "1988-01-18",
+      "phone": "6900000100",
+      "email": "vetgiorgos@example.com",
+      "password": "Vet1!!",
+      "totalScore": "14",
+      "reviewCount": "3",
+      "region": "Αττικής",
+      "experience": 8,
+      "availability": [
+        {
+          "date": "2026-01-17",
+          "times": [
+            "09:00",
+            "09:30",
+            "10:00",
+            "10:30",
+            "11:00",
+            "11:30",
+            "12:30",
+            "13:00",
+            "13:30",
+            "14:00",
+            "14:30",
+            "15:00",
+            "15:30",
+            "16:00",
+            "16:30"
+          ]
+        },
+        {
+          "date": "2026-01-18",
+          "times": [
+            "09:00",
+            "10:00",
+            "11:00"
+          ]
+        },
+        {
+          "date": "2026-01-19",
+          "times": [
+            "10:30"
+          ]
+        }
+      ],
+      "photoUrl": "/images/vet.png",
+      "specializations": [
+        "Κτηνιατρική Μικρών Ζώων"
+      ],
+      "studyLevel": "Διδακτορικό",
+      "services": {
+        "clinical_exam": {
+          "enabled": false,
+          "price": ""
+        },
+        "vaccination": {
+          "enabled": false,
+          "price": ""
+        },
+        "microchip_place": {
+          "enabled": false,
+          "price": ""
+        },
+        "health_book": {
+          "enabled": false,
+          "price": ""
+        },
+        "declaration": {
+          "enabled": false,
+          "price": ""
+        },
+        "blood_tests": {
+          "enabled": false,
+          "price": ""
+        },
+        "biochemical_tests": {
+          "enabled": false,
+          "price": ""
+        },
+        "urine_tests": {
+          "enabled": false,
+          "price": ""
+        },
+        "feces_tests": {
+          "enabled": false,
+          "price": ""
+        },
+        "xray": {
+          "enabled": false,
+          "price": ""
+        },
+        "ultrasound": {
+          "enabled": false,
+          "price": ""
+        },
+        "sterilization": {
+          "enabled": false,
+          "price": ""
+        },
+        "cleansing": {
+          "enabled": false,
+          "price": ""
+        },
+        "tumor_removal": {
+          "enabled": false,
+          "price": ""
+        },
+        "orthopedic": {
+          "enabled": false,
+          "price": ""
+        },
+        "surgery_general": {
+          "enabled": false,
+          "price": ""
+        },
+        "teeth_cleaning": {
+          "enabled": false,
+          "price": ""
+        },
+        "tooth_extraction": {
+          "enabled": false,
+          "price": ""
+        },
+        "gingivitis": {
+          "enabled": false,
+          "price": ""
+        },
+        "internal_deworming": {
+          "enabled": false,
+          "price": ""
+        },
+        "external_deworming": {
+          "enabled": false,
+          "price": ""
+        },
+        "heartworm_prevention": {
+          "enabled": false,
+          "price": ""
+        },
+        "antiparasitic_treatment": {
+          "enabled": false,
+          "price": ""
+        },
+        "skin_exam": {
+          "enabled": true,
+          "price": "10"
+        },
+        "allergy_test": {
+          "enabled": false,
+          "price": ""
+        },
+        "skin_treatment": {
+          "enabled": false,
+          "price": ""
+        }
+      },
+      "schedule": {
+        "mon": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "tue": {
+          "enabled": false,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "wed": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "thu": {
+          "enabled": false,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "fri": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "sat": {
+          "enabled": false,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "sun": {
+          "enabled": false,
+          "from": "09:00",
+          "to": "17:00"
+        }
+      }
+    },
+    {
+      "id": "844c",
+      "firstname": "ELENI",
+      "lastname": "ANTONIOU",
+      "afm": "1234567891",
+      "gender": "Γυναίκα",
+      "birthdate": "2026-01-01",
+      "email": "e.antoniou@gmail.com",
+      "address": "Makrisia",
+      "phone": "69804267100",
+      "password": "123456789",
+      "specializations": [
+        "Άλλο",
+        "Κτηνιατρική Μικρών Ζώων"
+      ],
+      "region": "Ηλείας",
+      "studyLevel": "Πτυχίο",
+      "experience": 50,
+      "photoUrl": "",
+      "services": {
+        "clinical_exam": {
+          "enabled": false,
+          "price": "10"
+        },
+        "vaccination": {
+          "enabled": false,
+          "price": "10"
+        },
+        "microchip_place": {
+          "enabled": false,
+          "price": ""
+        },
+        "health_book": {
+          "enabled": false,
+          "price": ""
+        },
+        "declaration": {
+          "enabled": true,
+          "price": ""
+        },
+        "blood_tests": {
+          "enabled": true,
+          "price": "100"
+        },
+        "biochemical_tests": {
+          "enabled": true,
+          "price": "100"
+        },
+        "urine_tests": {
+          "enabled": true,
+          "price": "100"
+        },
+        "feces_tests": {
+          "enabled": true,
+          "price": "100"
+        },
+        "xray": {
+          "enabled": true,
+          "price": "00100"
+        },
+        "ultrasound": {
+          "enabled": true,
+          "price": "10"
+        },
+        "sterilization": {
+          "enabled": false,
+          "price": ""
+        },
+        "cleansing": {
+          "enabled": false,
+          "price": ""
+        },
+        "tumor_removal": {
+          "enabled": false,
+          "price": ""
+        },
+        "orthopedic": {
+          "enabled": false,
+          "price": ""
+        },
+        "surgery_general": {
+          "enabled": false,
+          "price": ""
+        },
+        "teeth_cleaning": {
+          "enabled": true,
+          "price": "09"
+        },
+        "tooth_extraction": {
+          "enabled": true,
+          "price": "9"
+        },
+        "gingivitis": {
+          "enabled": true,
+          "price": "9"
+        },
+        "internal_deworming": {
+          "enabled": false,
+          "price": ""
+        },
+        "external_deworming": {
+          "enabled": false,
+          "price": ""
+        },
+        "heartworm_prevention": {
+          "enabled": false,
+          "price": ""
+        },
+        "antiparasitic_treatment": {
+          "enabled": false,
+          "price": ""
+        },
+        "skin_exam": {
+          "enabled": false,
+          "price": ""
+        },
+        "allergy_test": {
+          "enabled": false,
+          "price": ""
+        },
+        "skin_treatment": {
+          "enabled": false,
+          "price": ""
+        }
+      },
+      "schedule": {
+        "mon": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "tue": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "wed": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "thu": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "fri": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        },
+        "sat": {
+          "enabled": true,
+          "from": "05:00",
+          "to": "17:00"
+        },
+        "sun": {
+          "enabled": true,
+          "from": "09:00",
+          "to": "17:00"
+        }
+      },
+      "availability": [
+        {
+          "date": "2026-01-21",
+          "times": [
+            "09:00",
+            "09:30",
+            "10:00",
+            "10:30",
+            "11:00",
+            "11:30",
+            "12:00",
+            "13:00",
+            "13:30",
+            "14:00",
+            "14:30",
+            "15:00",
+            "15:30",
+            "16:00",
+            "16:30"
+          ]
+        },
+        {
+          "date": "2026-01-16",
+          "times": [
+            "09:00",
+            "09:30",
+            "10:00",
+            "10:30"
+          ]
+        }
+      ],
+      "reviewCount": "1",
+      "totalScore": "3"
+    }
+  ],
+  "pets": [
+    {
+      "id": "vp002",
+      "ownerId": "o102",
+      "name": "Μίλα",
+      "species": "Γάτα",
+      "breed": "Αδέσποτη",
+      "gender": "Θηλυκό",
+      "microchip": "555333444",
+      "birthdate": "2022-06-01",
+      "age": "0",
+      "region": "Έβρου",
+      "lastSeenAddress": "",
+      "lastSeenDate": "2026-01-17",
+      "condition": "",
+      "status": "adoption",
+      "photoUrl": "/images/mila.png",
+      "lost": false
+    },
+    {
+      "id": "1",
+      "ownerId": "631b",
+      "name": "Μπέλα",
+      "species": "Σκύλος",
+      "breed": "Labrador Retriever",
+      "gender": "Θηλυκό",
+      "microchip": "123456789",
+      "birthdate": null,
+      "age": "0",
+      "region": "Αττικής",
+      "lastSeenAddress": "",
+      "lastSeenDate": "2026-01-09",
+      "condition": "Ηταν φοβισμενο",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=1",
+      "lost": false
+    },
+    {
+      "id": "2",
+      "ownerId": "o101",
+      "name": "Τίγρης",
+      "species": "Γάτα",
+      "breed": "Siamese",
+      "gender": "Αρσενικό",
+      "microchip": "987654321",
+      "birthdate": null,
+      "age": "0",
+      "region": "Θεσσαλονίκης",
+      "lastSeenAddress": "Θεσσαλονίκη, Λιμάνι",
+      "lastSeenDate": "2025-11-10",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placekitten.com/400/300",
+      "lost": true
+    },
+    {
+      "id": "3",
+      "ownerId": "o101",
+      "name": "Ρεξ",
+      "species": "Σκύλος",
+      "breed": "German Shepherd",
+      "gender": "Αρσενικό",
+      "microchip": "112233445",
+      "birthdate": null,
+      "age": "0",
+      "region": "Ηρακλείου",
+      "lastSeenAddress": "Ηράκλειο, Παγκρήτιο",
+      "lastSeenDate": "2025-12-01",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=2",
+      "lost": true
+    },
+    {
+      "id": "4",
+      "ownerId": "o102",
+      "name": "Λούνα",
+      "species": "Γάτα",
+      "breed": "Persian",
+      "gender": "Θηλυκό",
+      "microchip": "223344556",
+      "birthdate": null,
+      "age": "0",
+      "region": "Ζακύνθου",
+      "lastSeenAddress": "123543224",
+      "lastSeenDate": "2026-01-02",
+      "condition": "555666333",
+      "status": "owned",
+      "photoUrl": "https://placekitten.com/401/301",
+      "lost": false
+    },
+    {
+      "id": "5",
+      "ownerId": "o101",
+      "name": "Μάξιμος",
+      "species": "Σκύλος",
+      "breed": "Bulldog",
+      "gender": "Αρσενικό",
+      "microchip": "334455667",
+      "birthdate": null,
+      "age": "0",
+      "region": "Λάρισας",
+      "lastSeenAddress": "Λάρισα, Κέντρο",
+      "lastSeenDate": "2025-10-15",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=3",
+      "lost": false
+    },
+    {
+      "id": "7",
+      "ownerId": "631b",
+      "name": "Άτλας",
+      "species": "Σκύλος",
+      "breed": "Golden Retriever",
+      "gender": "Αρσενικό",
+      "microchip": "556677899",
+      "birthdate": null,
+      "age": "0",
+      "region": "Αττικής",
+      "lastSeenAddress": "",
+      "lastSeenDate": "2026-01-14",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=4",
+      "lost": false
+    },
+    {
+      "id": "8",
+      "ownerId": "o102",
+      "name": "Σούζυ",
+      "species": "Γάτα",
+      "breed": "Ragdoll",
+      "gender": "Θηλυκό",
+      "microchip": "667789900",
+      "birthdate": null,
+      "age": "0",
+      "region": "Εύβοιας",
+      "lastSeenAddress": "eyboia",
+      "lastSeenDate": "2026-01-08",
+      "condition": "fovismeno",
+      "status": "owned",
+      "photoUrl": "https://placekitten.com/403/303",
+      "lost": false
+    },
+    {
+      "id": "9",
+      "ownerId": "o101",
+      "name": "Μπρούνο",
+      "species": "Σκύλος",
+      "breed": "Poodle",
+      "gender": "Αρσενικό",
+      "microchip": "778899011",
+      "birthdate": null,
+      "age": "0",
+      "region": "Ροδόπης",
+      "lastSeenAddress": "Κομοτηνή, Κέντρο",
+      "lastSeenDate": "2025-11-28",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=5",
+      "lost": true
+    },
+    {
+      "id": "10",
+      "ownerId": "o101",
+      "name": "Λίλυ",
+      "species": "Γάτα",
+      "breed": "British Shorthair",
+      "gender": "Θηλυκό",
+      "microchip": "889001122",
+      "birthdate": null,
+      "age": "0",
+      "region": "Αιτωλοακαρνανίας",
+      "lastSeenAddress": "ααααααααααααααααααααααααααααααααα",
+      "lastSeenDate": "2026-01-08",
+      "condition": "μμμμμμμμμμμμμμμμμμμμμμμμμμμμ",
+      "status": "owned",
+      "photoUrl": "https://placekitten.com/404/304",
+      "lost": false
+    },
+    {
+      "id": "11",
+      "ownerId": "631b",
+      "name": "Ράσμους",
+      "species": "Σκύλος",
+      "breed": "Beagle",
+      "gender": "Αρσενικό",
+      "microchip": "990112233",
+      "birthdate": null,
+      "age": "0",
+      "region": "Αργολίδας",
+      "lastSeenAddress": ";;;;;;;",
+      "lastSeenDate": "2026-01-08",
+      "condition": ";;;;;;;;;",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=6",
+      "lost": true
+    },
+    {
+      "id": "13",
+      "ownerId": "o102",
+      "name": "Άρης",
+      "species": "Σκύλος",
+      "breed": "Rottweiler",
+      "gender": "Αρσενικό",
+      "microchip": "111211415",
+      "birthdate": null,
+      "age": "0",
+      "region": "Βοιωτίας",
+      "lastSeenAddress": "Λιβαδειά, Κέντρο",
+      "lastSeenDate": "2025-12-08",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=7",
+      "lost": true
+    },
+    {
+      "id": "14",
+      "ownerId": "o101",
+      "name": "Φλώρα",
+      "species": "Γάτα",
+      "breed": "Russian Blue",
+      "gender": "Θηλυκό",
+      "microchip": "131415117",
+      "birthdate": null,
+      "age": "0",
+      "region": "Θεσσαλονίκης",
+      "lastSeenAddress": "",
+      "lastSeenDate": "2026-01-17",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placekitten.com/406/306",
+      "lost": false
+    },
+    {
+      "id": "vpgb9f9zvow",
+      "ownerId": "8d4e",
+      "name": "q",
+      "species": "Σκύλος",
+      "breed": "Rottweiler",
+      "gender": "Αρσενικό",
+      "microchip": "111111111",
+      "birthdate": null,
+      "age": "2",
+      "region": "Αττικής",
+      "lastSeenAddress": "",
+      "lastSeenDate": "2026-01-10",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=6",
+      "lost": false
+    },
+    {
+      "id": "vpwiudf8uve",
+      "ownerId": "0405",
+      "name": "2",
+      "species": "Σκύλος",
+      "breed": "Yorkshire Terrier",
+      "gender": "Αρσενικό",
+      "microchip": "111111112",
+      "birthdate": null,
+      "age": "2",
+      "region": "Ηλείας",
+      "lastSeenAddress": "Makrisia",
+      "lastSeenDate": "2026-01-09",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=6",
+      "lost": false
+    },
+    {
+      "id": "vp2zapvcwhj",
+      "ownerId": "v001",
+      "name": "Μπαλος",
+      "species": "Γάτα",
+      "breed": "Sphynx",
+      "gender": "Αρσενικό",
+      "microchip": "456789012",
+      "birthdate": "2023-03-12",
+      "age": "3",
+      "region": "Αττικής",
+      "lastSeenAddress": "Πατησίων 100, Αθήνα",
+      "lastSeenDate": "2026-01-10",
+      "condition": "",
+      "status": "adoption",
+      "photoUrl": "https://placekitten.com/405/305",
+      "lost": false
+    },
+    {
+      "id": "vpt3x54epvu",
+      "ownerId": "844c",
+      "name": "AAAAA",
+      "species": "Σκύλος",
+      "breed": "German Shepherd",
+      "gender": "Θηλυκό",
+      "microchip": "654321876",
+      "birthdate": "2026-01-01",
+      "age": "0",
+      "region": "Βοιωτίας",
+      "lastSeenAddress": "",
+      "lastSeenDate": "2026-01-17",
+      "condition": "",
+      "status": "adoption",
+      "photoUrl": "https://placedog.net/400/300?id=6",
+      "lost": false
+    },
+    {
+      "id": "vpqgig9l7lp",
+      "ownerId": "8d4e",
+      "name": "U",
+      "species": "Σκύλος",
+      "breed": "Labrador Retriever",
+      "gender": "Αρσενικό",
+      "microchip": "888888888",
+      "birthdate": null,
+      "age": "7",
+      "region": "Ηλείας",
+      "lastSeenAddress": "Makrisia",
+      "lastSeenDate": "2026-01-15",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=6",
+      "lost": false
+    },
+    {
+      "id": "vp83qkqzwl2",
+      "ownerId": "ad5c",
+      "name": "J",
+      "species": "Γάτα",
+      "breed": "Sphynx",
+      "gender": "Θηλυκό",
+      "microchip": "874323456",
+      "birthdate": null,
+      "age": "6",
+      "region": "Ηλείας",
+      "lastSeenAddress": "Makrisia",
+      "lastSeenDate": "2026-01-15",
+      "condition": "",
+      "status": "owned",
+      "photoUrl": "https://placedog.net/400/300?id=6",
+      "lost": false
+    },
+    {
+      "id": "vp3uvqbtbde",
+      "ownerId": "v001",
+      "name": "MPA",
+      "species": "Γάτα",
+      "breed": "Bengal",
+      "gender": "Θηλυκό",
+      "microchip": "573029394",
+      "birthdate": null,
+      "age": "1",
+      "region": "Αττικής",
+      "lastSeenAddress": "Πατησίων 100, Αθήνα",
+      "lastSeenDate": "2026-01-16",
+      "condition": "",
+      "status": "adoption",
+      "photoUrl": "https://placedog.net/400/300?id=6",
+      "lost": false
+    }
+  ],
+  "lostReports": [
+    {
+      "id": "06f4",
+      "petId": "7",
+      "date": "2026-01-12",
+      "region": "Θεσσαλονίκης",
+      "address": "",
+      "condition": "",
+      "status": "submitted",
+      "ownerId": "631b",
+      "createdBy": "631b",
+      "createdAt": "2026-01-17T08:29:27.550Z",
+      "photoUrl": "/static/media/vetdeafult.f9fd31327f1e1587b226.webp"
+    },
+    {
+      "id": "a3c3",
+      "petId": "vpt3x54epvu",
+      "date": "2026-01-17",
+      "region": "Αττικής",
+      "address": "",
+      "condition": "",
+      "status": "submitted",
+      "ownerId": "844c",
+      "createdBy": "v001",
+      "createdAt": "2026-01-17T08:33:17.831Z",
+      "photoUrl": "https://placedog.net/400/300?id=6"
+    },
+    {
+      "id": "7f12",
+      "petId": "vp001",
+      "date": "2026-01-16",
+      "region": "Θεσσαλονίκης",
+      "address": "",
+      "condition": "",
+      "status": "submitted",
+      "ownerId": "v001",
+      "createdBy": "v001",
+      "createdAt": "2026-01-17T09:39:16.749Z",
+      "photoUrl": ""
+    }
+  ],
+  "foundReports": [
+    {
+      "id": "a87c",
+      "petId": "11",
+      "date": "2026-01-13",
+      "region": "Αττικής",
+      "address": "",
+      "condition": "",
+      "status": "submitted",
+      "ownerId": "631b",
+      "createdBy": "631b",
+      "createdAt": "2026-01-17T08:29:12.924Z",
+      "photoUrl": "/static/media/vetdeafult.f9fd31327f1e1587b226.webp"
+    },
+    {
+      "id": "1705",
+      "petId": "7",
+      "date": "2026-01-14",
+      "region": "Αττικής",
+      "address": "",
+      "condition": "",
+      "status": "submitted",
+      "ownerId": "631b",
+      "createdBy": "v001",
+      "createdAt": "2026-01-17T08:31:03.290Z",
+      "photoUrl": "https://placedog.net/400/300?id=4"
+    },
+    {
+      "id": "3269",
+      "petId": "14",
+      "date": "2026-01-17",
+      "region": "Θεσσαλονίκης",
+      "address": "",
+      "condition": "",
+      "status": "submitted",
+      "ownerId": "o101",
+      "createdBy": "v001",
+      "createdAt": "2026-01-17T09:06:24.745Z",
+      "photoUrl": "https://placekitten.com/406/306"
+    },
+    {
+      "id": "61f0",
+      "petId": "vp002",
+      "date": "2026-01-17",
+      "region": "Έβρου",
+      "address": "",
+      "condition": "",
+      "status": "submitted",
+      "ownerId": "v001",
+      "createdBy": "v001",
+      "createdAt": "2026-01-17T09:37:11.127Z",
+      "photoUrl": ""
+    }
+  ],
+  "foundReportsWithoutAcc": [],
+  "adoptionReports": [],
+  "fosterReports": [],
+  "transferReports": [],
+  "medicalReports": [
+    {
+      "id": "m001",
+      "petId": "vp001",
+      "vetId": "v001",
+      "date": "2025-06-15",
+      "type": "Εμβολιασμός",
+      "description": "Ετήσιος εμβολιασμός κατά λύσσας και λοιμώξεων.",
+      "medications": "Rabies Vaccine, DHPP Vaccine",
+      "status": "completed",
+      "createdAt": "2025-06-15T10:30:00.000Z"
+    },
+    {
+      "id": "m002",
+      "petId": "vp001",
+      "vetId": "v001",
+      "date": "2025-12-01",
+      "type": "Τακτικός έλεγχος",
+      "description": "Γενικός κτηνιατρικός έλεγχος, όλα φυσιολογικά.",
+      "medications": "",
+      "status": "completed",
+      "createdAt": "2025-12-01T11:45:00.000Z"
+    },
+    {
+      "id": "a16d",
+      "petId": "vpgb9f9zvow",
+      "vetId": "844c",
+      "date": "2026-01-15",
+      "duration": "66",
+      "startTime": "18:14",
+      "endTime": "19:40",
+      "type": "clinical_exam",
+      "actionCode": "6",
+      "weight": "8",
+      "anesthesia": "Ναι",
+      "description": "",
+      "medications": "",
+      "status": "submitted",
+      "createdAt": "2026-01-15T16:14:58.911Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "app_of8kgg7u2",
+      "vetId": "v001",
+      "petId": "11",
+      "date": "2026-01-17",
+      "time": "11:00",
+      "reason": "surgery",
+      "description": "",
+      "status": "confirmed",
+      "createdAt": "2026-01-16T10:36:44.754Z",
+      "ownerId": "631b"
+    },
+    {
+      "id": "app_2a2mqbt6m",
+      "vetId": "v001",
+      "petId": "7",
+      "date": "2026-01-17",
+      "time": "12:00",
+      "reason": "vaccination",
+      "description": "",
+      "status": "cancelled",
+      "createdAt": "2026-01-16T10:53:18.959Z",
+      "ownerId": "631b",
+      "petName": "Άτλας",
+      "petSpecies": "Σκύλος",
+      "petMicrochip": "556677899",
+      "ownerName": "ΑΛΤΑΝΗH ΤΟΝΤΟΥY",
+      "ownerEmail": "sdi2200288@uoa.gr",
+      "ownerPhone": "69427818521",
+      "vetName": "Κτηνίατρος",
+      "cancelledBy": "vet",
+      "cancelledAt": "2026-01-16T11:19:43.764Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "017f",
+      "userId": "631b",
+      "userType": "owner",
+      "title": "Επιβεβαίωση Ραντεβού",
+      "message": "Ο κτηνίατρος undefined επιβεβαίωσε το ραντεβού για undefined στις 2026-01-17 11:00",
+      "appointmentId": "app_of8kgg7u2",
+      "read": false,
+      "createdAt": "2026-01-16T10:46:56.033Z"
+    },
+    {
+      "id": "62ec",
+      "userId": "631b",
+      "userType": "owner",
+      "title": "Επιβεβαίωση Ραντεβού",
+      "message": "Ο κτηνίατρος Κτηνίατρος επιβεβαίωσε το ραντεβού για Άτλας στις 2026-01-17 12:00",
+      "appointmentId": "app_2a2mqbt6m",
+      "read": false,
+      "createdAt": "2026-01-16T11:06:59.407Z"
+    },
+    {
+      "id": "3ad4",
+      "userId": "631b",
+      "userType": "owner",
+      "title": "Ακύρωση Ραντεβού",
+      "message": "Ο κτηνίατρος Κτηνίατρος ακύρωσε το ραντεβού για Άτλας στις 2026-01-17 12:00",
+      "appointmentId": "app_2a2mqbt6m",
+      "read": false,
+      "createdAt": "2026-01-16T11:19:43.783Z"
+    }
+  ],
+  "identity": [
+    {
+      "id": "idnovp1wum9a",
+      "petId": "vpt3x54epvu",
+      "vetId": "844c",
+      "ownerId": "844c",
+      "date": "2026-01-15"
+    },
+    {
+      "id": "idn26vd39u8p",
+      "petId": "vpqgig9l7lp",
+      "vetId": "844c",
+      "ownerId": "8d4e",
+      "date": "2026-01-15"
+    },
+    {
+      "id": "idnwr7f94aa9",
+      "petId": "vp83qkqzwl2",
+      "vetId": "844c",
+      "ownerId": "ad5c",
+      "date": "2026-01-15"
+    },
+    {
+      "id": "idnbvfsujojj",
+      "petId": "vp3uvqbtbde",
+      "vetId": "v001",
+      "ownerId": "v001",
+      "date": "2026-01-16"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "a018",
+      "vetId": "844c",
+      "ownerId": "631b",
+      "appointmentId": "app_1o5yua48j",
+      "stars": 3,
+      "text": "Ολα καλα!",
+      "createdAt": "2026-01-12T15:19:48.076Z"
+    },
+    {
+      "id": "4829",
+      "vetId": "v001",
+      "ownerId": "631b",
+      "appointmentId": "app_2a2mqbt6m",
+      "stars": 4,
+      "text": "",
+      "createdAt": "2026-01-16T11:51:07.480Z"
+    }
+  ]
+}

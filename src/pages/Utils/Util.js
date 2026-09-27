@@ -1,0 +1,549 @@
+import petPhoto from "../../images/lostPet1.png";
+
+export function formatNumber(num) {
+  if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + "M";
+  if (num >= 1_000) return (num / 1_000).toFixed(1) + "K";
+  return num.toString();
+}
+
+export function calculateMO(score, num) {
+  if (num === 0) return "0.0";
+  return (score / num).toFixed(1);
+}
+
+export function Stars({ value = 0 }) {
+  const v = Number(value);
+  const full = Math.floor(v);
+  const half = v - full >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
+  const stars = [];
+  for (let i = 0; i < full; i++) stars.push(<span key={`full-${i}`} className="star star-filled">★</span>);
+  if (half) stars.push(<span key="half" className="star star-half">★</span>);
+  for (let i = 0; i < empty; i++) stars.push(<span key={`empty-${i}`} className="star">★</span>);
+  return <div className="stars">{stars}</div>;
+}
+
+export function buildEnabledServicesByCategory(user) {
+  const services = user?.services || {};
+  const result = [];
+  for (const cat of SERVICE_CATEGORIES) {
+    const enabledItems = [];
+    for (const it of cat.items) {
+      const st = services[it.id];
+      if (!st || !st.enabled) continue;
+      const price = st.price !== "" && st.price != null ? String(st.price) : "";
+      enabledItems.push({ ...it, price });
+    }
+    if (enabledItems.length > 0) {
+      result.push({ ...cat, enabledItems });
+    }
+  }
+  return result;
+}
+
+export const REGIONS = [
+  "Αιτωλοακαρνανίας", "Αργολίδας", "Αρκαδίας", "Άρτας", "Αττικής", "Αχαΐας", "Βοιωτίας",
+  "Γρεβενών", "Δράμας", "Δωδεκανήσου", "Έβρου", "Εύβοιας", "Ευρυτανίας", "Ζακύνθου",
+  "Ηλείας", "Ημαθίας", "Ηρακλείου", "Θεσπρωτίας", "Θεσσαλονίκης", "Ιωαννίνων",
+  "Καβάλας", "Καρδίτσας", "Καστοριάς", "Κέρκυρας", "Κεφαλληνίας", "Κιλκίς", "Κοζάνης",
+  "Κορινθίας", "Κυκλάδων", "Λακωνίας", "Λάρισας", "Λασιθίου", "Λέσβου", "Λευκάδας",
+  "Μαγνησίας", "Μεσσηνίας", "Ξάνθης", "Πέλλας", "Πιερίας", "Πρέβεζας", "Ρεθύμνης",
+  "Ροδόπης", "Σάμου", "Σερρών", "Τρικάλων", "Φθιώτιδας", "Φλωρίνης", "Φωκίδας",
+  "Χαλκιδικής", "Χανίων", "Χίου"
+];
+
+// Util.js
+export const EXPERIENCE_OPTIONS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
+export const SPECIALIZATION_OPTIONS = ["Μικρά ζώα", "Μεγάλα ζώα", "Πτηνά", "Εξωτικά"];
+export const EDUCATION_OPTIONS = ["Πτυχίο", "Μεταπτυχιακό", "Διδακτορικό"];
+export const VET_GENDERS = ["Άνδρας", "Γυναίκα", "Άλλο"];
+
+export const MEDICAL_ACTS = [
+  { id: "clinical_exam", label: "Κλινική εξέταση" },
+  { id: "vaccination", label: "Εμβολιασμός" },
+  { id: "surgery", label: "Χειρουργική επέμβαση" },
+  { id: "dental_care", label: "Οδοντιατρική φροντίδα" },
+  { id: "dermatology_treatment", label: "Δερματολογική θεραπεία" },
+  { id: "diagnostic_tests", label: "Διαγνωστικές εξετάσεις" },
+  { id: "parasite_control", label: "Αντιπαρασιτική αγωγή" },
+  { id: "microchip", label: "Τοποθέτηση microchip" },
+  { id: "health_book", label: "Έκδοση βιβλιαρίου υγείας" },
+  { id: "other", label: "Άλλη πράξη" },
+];
+
+export const SPECIES = ["Σκύλος", "Γάτα", "Άλλο"];
+
+export const GENDERS = ["Θηλυκό", "Αρσενικό"];
+
+export const STUDY_LEVELS = ["Πτυχίο", "Μεταπτυχιακό", "Διδακτορικό"];
+
+export const VET_SPECIALIZATIONS = [
+  "Κτηνιατρική Μικρών Ζώων", "Κτηνιατρική Αγροτικών Ζώων", "Χειρουργική",
+  "Κτηνιατρική Εξωτικών Ζώων", "Οδοντιατρική", "Δερματολογία", "Καρδιολογία",
+  "Νευρολογία", "Ογκολογία", "Δημόσια Υγεία", "Παθολογία", "Άλλο"
+];
+
+export const DAYS = [
+  { id: "mon", label: "Δευτέρα" },
+  { id: "tue", label: "Τρίτη" },
+  { id: "wed", label: "Τετάρτη" },
+  { id: "thu", label: "Πέμπτη" },
+  { id: "fri", label: "Παρασκευή" },
+  { id: "sat", label: "Σάββατο" },
+  { id: "sun", label: "Κυριακή" }
+];
+
+export const dogPopular = [
+  "Labrador Retriever", "German Shepherd", "Golden Retriever", "French Bulldog",
+  "Bulldog", "Poodle", "Beagle", "Rottweiler", "Yorkshire Terrier", "Dachshund"
+];
+
+export const catPopular = [
+  "British Shorthair", "Maine Coon", "Siamese", "Persian", "Ragdoll", "Sphynx",
+  "Bengal", "Russian Blue", "Scottish Fold", "European Shorthair"
+];
+
+export const SERVICE_CATEGORIES = [
+  {
+    id: "basic",
+    title: "Βασικές Υπηρεσίες",
+    items: [
+      { id: "clinical_exam", label: "Κλινική εξέταση" },
+      { id: "vaccination", label: "Εμβολιασμός" }
+    ]
+  },
+  {
+    id: "microchip",
+    title: "Microchip & Έγγραφα",
+    items: [
+      { id: "microchip_place", label: "Τοποθέτηση-Καταχώριση microchip" },
+      { id: "health_book", label: "Έκδοση βιβλιαρίου υγείας" },
+      { id: "declaration", label: "Καταχώρηση δηλώσεων" }
+    ]
+  },
+  {
+    id: "diagnostic",
+    title: "Εξετάσεις & Διαγνωστικά",
+    items: [
+      { id: "blood_tests", label: "Αιματολογικές εξετάσεις" },
+      { id: "biochemical_tests", label: "Βιοχημικές εξετάσεις" },
+      { id: "urine_tests", label: "Ανάλυση ούρων" },
+      { id: "feces_tests", label: "Ανάλυση κοπράνων" },
+      { id: "xray", label: "Ακτινογραφίες" },
+      { id: "ultrasound", label: "Υπερηχογράφημα" }
+    ]
+  },
+  {
+    id: "surgery",
+    title: "Χειρουργικές Επεμβάσεις",
+    items: [
+      { id: "sterilization", label: "Στείρωση" },
+      { id: "cleansing", label: "Καθαρισμοί" },
+      { id: "tumor_removal", label: "Αφαίρεση όγκου" },
+      { id: "orthopedic", label: "Ορθοπεδικές επεμβάσεις" },
+      { id: "surgery_general", label: "Χειρουργείο" }
+    ]
+  },
+  {
+    id: "dentistry",
+    title: "Οδοντιατρική",
+    items: [
+      { id: "teeth_cleaning", label: "Καθαρισμός δοντιών" },
+      { id: "tooth_extraction", label: "Εξαγωγή δοντιού" },
+      { id: "gingivitis", label: "Θεραπεία ουλίτιδας" }
+    ]
+  },
+  {
+    id: "parasitological",
+    title: "Παρασιτολογικός Έλεγχος & Θεραπείες",
+    items: [
+      { id: "internal_deworming", label: "Εσωτερική αποπαρασίτωση" },
+      { id: "external_deworming", label: "Εξωτερική αποπαρασίτωση" },
+      { id: "heartworm_prevention", label: "Πρόληψη καρδιοσκώληκα" },
+      { id: "antiparasitic_treatment", label: "Αντιπαρασιτικές θεραπείες" }
+    ]
+  },
+  {
+    id: "dermatology",
+    title: "Δερματολογικές Υπηρεσίες",
+    items: [
+      { id: "skin_exam", label: "Εξέταση δέρματος" },
+      { id: "allergy_test", label: "Εξέταση αλλεργιών" },
+      { id: "skin_treatment", label: "Θεραπεία δερματικών λοιμώξεων" }
+    ]
+  }
+];
+
+
+export const faqsVet = [
+  {
+    question: "Πώς ειδοποιούμαι όταν ένας ιδιοκτήτης χρειάζεται βοήθεια;",
+    answer: (
+      <p>
+        Λαμβάνετε ειδοποιήσεις μέσα από την πλατφόρμα για τα ραντεβού.
+      </p>
+    )
+  },
+  {
+    question: "Πώς γίνεται η επικοινωνία με τους ιδιοκτήτες;",
+    answer: (
+      <p>
+        Η επικοινωνία γίνεται μέσω της πλατφόρμας μηνυμάτων για λόγους
+        ασφάλειας.
+      </p>
+    )
+  },
+
+  {
+    question: "Τι επαγγελματικά στοιχεία συλλέγονται όταν εγγράφομαι ως κτηνίατρος;",
+    answer: (
+      <p>
+        Συλλέγονται: όνομα, επώνυμο, ΑΦΜ, διεύθυνση ιατρείου, στοιχεία
+        επικοινωνίας, ειδικότητα, εμπειρία, σπουδές και διαθεσιμότητα ραντεβού.
+      </p>
+    )
+  },
+  {
+    question: "Μπορώ να καταχωρώ ιατρικές πράξεις;",
+    answer: (
+      <p>
+        Ναι, μπορείτε να καταγράφετε ιατρικές πράξεις, ιστορικό υγείας
+        και συμβάντα ζωής ενός κατοικιδίου.
+      </p>
+    )
+  },
+  {
+    question: "Μπορώ να δω το βιβλιάριο υγείας των ζώων που παρακολουθώ;",
+    answer: (
+      <p>
+        Ναι, μπορείτε να προβάλετε και να εκτυπώνετε το ψηφιακό βιβλιάριο
+        υγείας των ζώων που σας έχουν επιλέξει.
+      </p>
+    )
+  },
+  {
+    question: "Πώς ορίζω διαθεσιμότητα για ραντεβού;",
+    answer: (
+      <p>
+        Από τον λογαριασμό σας ορίζετε ώρες και ημέρες. Κάθε ώρα αντιστοιχεί
+        σε ένα ραντεβού. Ακύρωση το καθιστά ξανά διαθέσιμο.
+      </p>
+    )
+  },
+  {
+    question: "Ποια δεδομένα ιδιοκτητών μπορώ να δω;",
+    answer: (
+      <p>
+        Βλέπετε μόνο τα απαραίτητα στοιχεία για τα ζώα που σας έχουν επιλέξει,
+        σύμφωνα με την Πολιτική Απορρήτου.
+      </p>
+    )
+  },
+  {
+    question: "Μπορώ να δω τις αξιολογήσεις που αφήνουν οι ιδιοκτήτες;",
+    answer: (
+      <p>
+        Ναι, έχετε πλήρη πρόσβαση στο σύνολο των αξιολογήσεων που έχουν
+        υποβληθεί για εσάς.
+      </p>
+    )
+  },
+  {
+    question: "Πού απευθύνομαι για τεχνική υποστήριξη;",
+    answer: (
+      <p>
+        Μπορείτε να επικοινωνήσετε στο <strong>info@pet.gr</strong> ή
+        στο <strong>2100 000 000</strong>.
+      </p>
+    )
+  }
+];
+
+
+export const faqsOwner = [
+  {
+    question: "Υπάρχει κάποιο κόστος συμμετοχής ή συνδρομής;",
+    answer: (
+      <p>
+        Όχι, η χρήση της πλατφόρμας είναι δωρεάν για τους ιδιοκτήτες.
+        Πληρωμή υπάρχει μόνο για υπηρεσίες που παρέχει ένας κτηνίατρος
+        και εμφανίζεται πάντα ξεκάθαρα πριν την επιβεβαίωση.
+      </p>
+    ),
+  },
+  {
+    question: "Χρειάζεται να δημιουργήσω λογαριασμό για να επικοινωνήσω με έναν κτηνίατρο;",
+    answer: (
+      <p>
+        Ναι, χρειάζεται λογαριασμός ώστε να γίνει ασφαλής και οργανωμένη η επικοινωνία.
+      </p>
+    ),
+  },
+  {
+    question: "Μπορώ να αξιολογήσω ή να αφήσω σχόλιο για έναν κτηνίατρο;",
+    answer: (
+      <p>
+        Ναι, μπορείτε μετά την ολοκλήρωση του ραντεβού να αφήσετε
+        αξιολόγηση και σχόλιο.
+      </p>
+    ),
+  },
+  {
+    question: "Είναι ασφαλή τα προσωπικά μου δεδομένα;",
+    answer: (
+      <p>
+        Τα δεδομένα σας προστατεύονται, όπως αναφέρεται στην Πολιτική Απορρήτου.
+      </p>
+    ),
+  },
+  {
+    question: "Πώς μπορώ να επικοινωνήσω με την υποστήριξη;",
+    answer: (
+      <p>
+        Μπορείτε να επικοινωνήσετε στο <strong>info@pet.gr</strong> ή στο
+        τηλέφωνο <strong>2100 000 000</strong>.
+      </p>
+    ),
+  },
+  {
+    question: "Τι δεδομένα συλλέγονται για μένα ως ιδιοκτήτη;",
+    answer: (
+      <p>
+        Συλλέγονται στοιχεία όπως όνομα, επώνυμο, email, τηλέφωνο,
+        στοιχεία κατοικιδίου (microchip, εμβολιασμοί, ιστορικό υγείας),
+        όπως προβλέπεται από την Πολιτική Απορρήτου.
+      </p>
+    ),
+  },
+  {
+    question: "Για ποιο σκοπό χρησιμοποιούνται τα προσωπικά μου δεδομένα;",
+    answer: (
+      <p>
+        Για δημιουργία λογαριασμού, επικοινωνία με κτηνιάτρους, ραντεβού,
+        διαχείριση βιβλιαρίου υγείας, δηλώσεις απώλειας/εύρεσης και βελτίωση υπηρεσιών.
+      </p>
+    ),
+  },
+  {
+    question: "Πόσο καιρό διατηρούνται τα δεδομένα μου;",
+    answer: (
+      <p>
+        Όσο ο λογαριασμός σας είναι ενεργός. Μετά τη διαγραφή, τα δεδομένα
+        διαγράφονται ή ανωνυμοποιούνται.
+      </p>
+    ),
+  },
+  {
+    question: "Τι ισχύει με τη χρήση Cookies;",
+    answer: (
+      <p>
+        Η πλατφόρμα χρησιμοποιεί cookies για λειτουργικούς και στατιστικούς σκοπούς.
+        Μπορείτε να τα απενεργοποιήσετε μέσα από τον browser σας.
+      </p>
+    ),
+  },
+  {
+    question: "Μπορώ να δηλώσω απώλεια ή εύρεση κατοικιδίου;",
+    answer: (
+      <p>
+        Ναι, μπορείτε να δηλώσετε απώλεια ή εύρεση μέσα από το προφίλ σας και
+        να παρακολουθείτε το ιστορικό των δηλώσεών σας.
+      </p>
+    ),
+  },
+  {
+    question: "Πώς προγραμματίζω ραντεβού με έναν κτηνίατρο;",
+    answer: (
+      <p>
+        Από τη σελίδα του κτηνιάτρου βλέπετε τις διαθέσιμες ώρες και κάνετε κράτηση.
+        Μπορείτε επίσης να ακυρώσετε ή να αλλάξετε το ραντεβού σας.
+      </p>
+    ),
+  },
+  {
+    question: "Ποιος έχει πρόσβαση στα δεδομένα του κατοικιδίου μου;",
+    answer: (
+      <p>
+        Μόνο εσείς και ο κτηνίατρος που έχετε επιλέξει — όπως ορίζει η Πολιτική Απορρήτου.
+      </p>
+    ),
+  },
+];
+
+export const pet = {
+  name: "Barbie",
+  photoUrl: petPhoto,
+  microchip: "123456789",
+  species: "Σκύλος",
+  breed: "Golden Retriever",
+  gender: "Θηλυκό",
+  lastSeenDate: "12/10/2025",
+  region: "Αττική",
+  lastSeenAddress: "Σύνταγμα, Αθήνα",
+};
+
+export const lossDeclarations = [
+  {
+    id: 1,
+    status: "draft",
+    statusLabel: "Προσωρινή Αποθήκευση",
+    date: "12/12/2024",
+    address: "Λεωφόρος Κηφισίας 102",
+    region: "Αττική",
+    photo: pet.photoUrl,
+    note: "Η δήλωση δεν έχει οριστικοποιηθεί ακόμα. Μπορεί να διαγραφεί ή να οριστικοποιηθεί.",
+  },
+  {
+    id: 2,
+    status: "final",
+    statusLabel: "Οριστικοποιημένη",
+    date: "05/12/2024",
+    address: "Πλατεία Αγίου Γεωργίου",
+    region: "Αττική",
+    photo: pet.photoUrl,
+    note: "Η δήλωση έχει οριστικοποιηθεί. Επιτρέπεται μόνο προβολή και εκτύπωση.",
+  },
+  {
+    id: 3,
+    status: "draft",
+    statusLabel: "Προσωρινή Αποθήκευση",
+    date: "20/11/2024",
+    address: "Οδός Δελφών 14",
+    region: "Θεσσαλονίκη",
+    photo: pet.photoUrl,
+    note: "Απαιτείται επιβεβαίωση στοιχείων πριν την οριστικοποίηση.",
+  },
+];
+
+export const foundDeclarations = [
+  {
+    id: 1,
+    status: "draft",
+    statusLabel: "Προσωρινή Αποθήκευση",
+    date: "15/01/2025",
+    address: "Πλατεία Συντάγματος",
+    region: "Αττική",
+    photo: pet.photoUrl,
+    noteLeft:
+      "Το ζώο βρέθηκε σε καλή κατάσταση. Αναρτήθηκε στη δημόσια πλατφόρμα.",
+    noteRight:
+      "Υιοθεσία:\nΚατάσταση: σε εξέλιξη\nΑιτήσεις: 2\nΤελευταία ενημέρωση: 16/01/2025",
+  },
+  {
+    id: 2,
+    status: "final",
+    statusLabel: "Οριστικοποιημένη",
+    date: "10/01/2025",
+    address: "Περιοχή Αμπελόκηποι",
+    region: "Αττική",
+    photo: pet.photoUrl,
+    noteLeft:
+      "Το ζώο βρέθηκε έξω από εμπορικό κατάστημα. Καταγράφηκε από δημοτική υπηρεσία.",
+    noteRight:
+      "Υιοθεσία:\nΚατάσταση: ολοκληρωμένη\nΑπό: Μαρία Γ.\nΗμερομηνία: 12/01/2025",
+  },
+  {
+    id: 3,
+    status: "final",
+    statusLabel: "Οριστικοποιημένη",
+    date: "20/12/2024",
+    address: "Πάρκο Εθνικής Αντιστάσεως",
+    region: "Πάτρα",
+    photo: pet.photoUrl,
+    noteLeft:
+      "Εντοπίστηκε να περιφέρεται στο πάρκο. Μεταφέρθηκε σε αρμόδιο καταφύγιο.",
+    noteRight:
+      "Υιοθεσία:\nΚατάσταση: ακυρωμένη\nΣχόλιο: Ο ιδιοκτήτης εντοπίστηκε.",
+  },
+];
+
+export const foundByOthers = [
+  {
+    id: 1,
+    status: "draft",
+    statusLabel: "Προσωρινή Αποθήκευση",
+    date: "18/01/2025",
+    address: "Οδός Ελευθερίου Βενιζέλου 45",
+    region: "Αττική",
+    photo: pet.photoUrl,
+    noteLeft:
+      "Ο πολίτης δήλωσε ότι βρήκε το ζώο κοντά σε είσοδο πολυκατοικίας.",
+    noteRight:
+      "Σημείωση:\nΤο ζώο φιλοξενείται προσωρινά.\nΑναμένεται επιβεβαίωση.",
+  },
+  {
+    id: 2,
+    status: "final",
+    statusLabel: "Οριστικοποιημένη",
+    date: "10/01/2025",
+    address: "Λιμάνι Πειραιά",
+    region: "Αττική",
+    photo: pet.photoUrl,
+    noteLeft:
+      "Ο πολίτης ανέφερε πως είδε το ζώο να περιφέρεται κοντά στο λιμάνι.",
+    noteRight:
+      "Σημείωση:\nΗ δήλωση στάλθηκε στις αρμόδιες υπηρεσίες.",
+  },
+  {
+    id: 3,
+    status: "draft",
+    statusLabel: "Προσωρινή Αποθήκευση",
+    date: "05/01/2025",
+    address: "Οδός Κανάρη 11",
+    region: "Λάρισα",
+    photo: pet.photoUrl,
+    noteLeft:
+      "Το ζώο ήταν φοβισμένο. Ο πολίτης το κράτησε προσωρινά στο σπίτι του.",
+    noteRight:
+      "Σημείωση:\nΑναμένεται αντιστοίχιση με υπάρχουσες δηλώσεις.",
+  },
+];
+
+
+export const pets = [
+  {
+    id: 1,
+    name: "Barbie",
+    photoUrl: petPhoto,
+    microchip: "123456789",
+    species: "Σκύλος",
+    breed: "Golden Retriever",
+    gender: "Θηλυκό",
+    lastSeenDate: "12/10/2025",
+    region: "Αττική",
+    lastSeenAddress: "Σύνταγμα, Αθήνα",
+
+    owner: {
+      name: "Ελένη Τόντου",
+      afm: "123456789",
+      address: "Ζωγράφου 6, Αττική",
+      phone: "2100000000",
+    },
+
+    medicalActs: [],
+    incidents: [],
+  },
+
+  {
+    id: 2,
+    name: "Luna",
+    photoUrl: petPhoto,
+    microchip: "987654321",
+    species: "Γάτα",
+    breed: "British Shorthair",
+    gender: "Θηλυκό",
+    lastSeenDate: "05/09/2025",
+    region: "Αττική",
+    lastSeenAddress: "Παγκράτι, Αθήνα",
+
+    owner: {
+      name: "Νίκος Παπαδόπουλος",
+      afm: "987654321",
+      address: "Παγκράτι 12, Αθήνα",
+      phone: "2101111111",
+    },
+
+    medicalActs: [],
+    incidents: [],
+  },
+];

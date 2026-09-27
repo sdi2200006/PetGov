@@ -1,0 +1,219 @@
+import React, { useEffect, useState } from "react";
+import { MEDICAL_ACTS } from "../Utils/Util";
+import { updateVetAvailability, sendNotification } from "../../AppointmentUtils";
+import "./FutureBookingsVet.css";
+
+export default function FutureBookingsVet() {
+  const [bookings, setBookings] = useState([]);
+  const [openId, setOpenId] = useState(null);
+
+  const getMedicalActLabel = (id) => {
+    const act = MEDICAL_ACTS.find(a => a.id === id);
+    return act ? act.label : "Άγνωστη Πράξη";
+  };
+
+  const getStatusClass = (status) => {
+    switch (status) {
+      case "confirmed": return "ok";
+      case "pending": return "waiting";
+      case "rejected": return "cancelled";
+      case "cancelled": return "cancelled";
+      default: return "";
+    }
+  }
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) return;
+
+    const fetchData = async () => {
+      try {
+        const [appointmentsRes, petsRes, ownersRes] = await Promise.all([
+          fetch(`http://localhost:3001/appointments?vetId=${user.id}`),
+          fetch(`http://localhost:3001/pets`),
+          fetch(`http://localhost:3001/owners`) // ⚡ Διορθώθηκε
+        ]);
+
+        const [appointments, pets, owners] = await Promise.all([
+          appointmentsRes.json(),
+          petsRes.json(),
+          ownersRes.json()
+        ]);
+
+        const today = new Date();
+        const future = appointments
+          .filter(a => new Date(a.date) >= today)
+          .map(a => {
+            const pet = pets.find(p => p.id === a.petId) || {};
+            const owner = owners.find(o => o.id === a.ownerId) || {};
+            return {
+              ...a,
+              petName: pet.name || "Άγνωστο",
+              petSpecies: pet.species || "Άγνωστο",
+              petMicrochip: pet.microchip || "—",
+              ownerName: owner.firstname && owner.lastname ? `${owner.firstname} ${owner.lastname}` : "Άγνωστος",
+              ownerEmail: owner.email || "—",
+              ownerPhone: owner.phone || "—",
+              vetName: user.name || "Κτηνίατρος"
+            };
+          })
+          .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        setBookings(future);
+
+      } catch (err) {
+        console.error("Σφάλμα κατά τη φόρτωση ραντεβού:", err);
+        alert("Σφάλμα κατά τη φόρτωση ραντεβού");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const toggle = (id) => setOpenId(openId === id ? null : id);
+
+  const updateStatus = async (appointment, newStatus) => {
+    if (appointment.status === "cancelled") {
+      alert("Το ραντεβού έχει ακυρωθεί και δεν μπορεί να τροποποιηθεί.");
+      return;
+    }
+
+    try {
+      if (appointment.status === "confirmed" && newStatus === "rejected") {
+        await updateVetAvailability(appointment.vetId, appointment.date, appointment.time, "add");
+      }
+
+      const res = await fetch(`http://localhost:3001/appointments/${appointment.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          status: newStatus,
+          ...(newStatus === "rejected" && appointment.status === "confirmed" ? {
+            cancelledBy: "vet",
+            cancelledAt: new Date().toISOString()
+          } : {})
+        })
+      });
+      const updatedAppointment = await res.json();
+
+      if (newStatus === "confirmed") {
+        await updateVetAvailability(appointment.vetId, appointment.date, appointment.time, "remove");
+      }
+
+      if (newStatus === "confirmed" || newStatus === "rejected") {
+        await sendNotification({
+          userId: appointment.ownerId,
+          userType: "owner",
+          title: newStatus === "confirmed" ? "Επιβεβαίωση Ραντεβού" : "Απόρριψη Ραντεβού",
+          message: newStatus === "confirmed"
+            ? `Ο κτηνίατρος ${appointment.vetName} επιβεβαίωσε το ραντεβού για ${appointment.petName} στις ${appointment.date} ${appointment.time}`
+            : `Ο κτηνίατρος ${appointment.vetName} απέρριψε το ραντεβού για ${appointment.petName}`,
+          appointmentId: appointment.id
+        });
+      }
+
+      setBookings(prev => prev.map(b => b.id === updatedAppointment.id ? updatedAppointment : b));
+    } catch (err) {
+      console.error(err);
+      alert("Σφάλμα κατά την ενημέρωση του ραντεβού");
+    }
+  };
+
+  const cancelBooking = async (appointment) => {
+    if (appointment.status === "cancelled") {
+      alert("Το ραντεβού έχει ήδη ακυρωθεί.");
+      return;
+    }
+
+    try {
+      const updatedAppointment = {
+        ...appointment,
+        status: "cancelled",
+        cancelledBy: "vet",
+        cancelledAt: new Date().toISOString()
+      };
+
+      await fetch(`http://localhost:3001/appointments/${appointment.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedAppointment)
+      });
+
+      if (appointment.status === "confirmed") {
+        await updateVetAvailability(appointment.vetId, appointment.date, appointment.time, "add");
+      }
+
+      await sendNotification({
+        userId: appointment.ownerId,
+        userType: "owner",
+        title: "Ακύρωση Ραντεβού",
+        message: `Ο κτηνίατρος ${appointment.vetName} ακύρωσε το ραντεβού για ${appointment.petName} στις ${appointment.date} ${appointment.time}`,
+        appointmentId: appointment.id
+      });
+
+      setBookings(prev => prev.map(b => b.id === appointment.id ? updatedAppointment : b));
+    } catch (err) {
+      console.error(err);
+      alert("Σφάλμα κατά την ακύρωση του ραντεβού");
+    }
+  };
+
+  const renderStatusText = (status) => {
+    if (status === "pending") return "Περιμένει επιβεβαίωση";
+    if (status === "confirmed") return "Επιβεβαιωμένο";
+    if (status === "rejected") return "Απορρίφθηκε";
+    if (status === "cancelled") return "Ακυρώθηκε";
+  };
+
+  return (
+    <div className="future-bookings">
+      <h2>Μελλοντικά Ραντεβού</h2>
+      <div className="bookings-list">
+        {bookings.map(b => (
+          <div key={b.id} className={`booking-card ${b.status}`}>
+            <div className="booking-header" onClick={() => toggle(b.id)}>
+              <div className="left">
+                <div className="pet-name">{b.petName}</div>
+                <div className="owner-name">Ιδιοκτήτης: {b.ownerName}</div>
+              </div>
+              <div className="right">
+                <span className="time">{new Date(b.date).toLocaleDateString("el-GR")} • {b.time}</span>
+                <span className={`status ${getStatusClass(b.status)}`}>{renderStatusText(b.status)}</span>
+                <span className="action">{getMedicalActLabel(b.reason)}</span>
+                <span className={`arrow ${openId === b.id ? "open" : ""}`}>
+                  ▼
+                </span>
+
+              </div>
+            </div>
+            {openId === b.id && (
+              <div className="booking-body">
+                <div className="info-grid">
+                  <div><strong>Κατοικίδιο:</strong> {b.petName}</div>
+                  <div><strong>Είδος:</strong> {b.petSpecies}</div>
+                  <div><strong>Microchip:</strong> {b.petMicrochip}</div>
+                  <div><strong>Ιδιοκτήτης:</strong> {b.ownerName}</div>
+                  <div><strong>Email:</strong> {b.ownerEmail}</div>
+                  <div><strong>Τηλέφωνο:</strong> {b.ownerPhone}</div>
+                </div>
+                {(b.status !== "cancelled") && (
+                  <div className="vet-actions">
+                    {b.status === "pending" && (
+                      <>
+                        <button className="confirm-btn" onClick={() => updateStatus(b, "confirmed")}>Επιβεβαίωση</button>
+                        <button className="reject-btn" onClick={() => updateStatus(b, "rejected")}>Απόρριψη</button>
+                      </>
+                    )}
+                    <button className="cancel-btn" onClick={() => cancelBooking(b)}>
+                      Ακύρωση
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
